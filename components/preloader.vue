@@ -1,19 +1,18 @@
 <template>
-  <div class="preloader" ref="preloader">
+  <div class="preloader">
     <h1>пятыйкруг.прод</h1>
     <img width="180px" src="/svg/discleimer.svg" alt="" srcset="">
   </div>
 </template>
+
 <script setup>
-const preloader = ref(null)
-onMounted(()=> preloader.value.classList.add('preloader--visible'))
 </script>
-<style lang="scss" scoped>
+
+<style lang="scss">
 .preloader {
   width: 100%;
   height: 100vh;
-  opacity: 0;
-  transition: opacity 1s linear;
+  animation: fade-to 1s;
   font-family: Doloman;
   display: flex;
 
@@ -44,5 +43,11 @@ onMounted(()=> preloader.value.classList.add('preloader--visible'))
     left: calc(50% - 90px);
     bottom: 60px;
   }
+}
+
+@keyframes fade-to {
+  0% { opacity: 0 }
+
+  100% { opacity: 1}
 }
 </style>
