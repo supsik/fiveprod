@@ -1,18 +1,23 @@
 <template>
-  <div class="preloader">
+  <div class="preloader" ref="preloader">
     <h1>пятыйкруг.прод</h1>
-    <img width="180px" src="/public/svg/discleimer.svg" alt="" srcset="">
+    <img width="180px" src="/svg/discleimer.svg" alt="" srcset="">
   </div>
 </template>
 <script setup>
-
+const preloader = ref(null)
+onMounted(()=> preloader.value.classList.add('preloader--visible'))
 </script>
 <style lang="scss" scoped>
 .preloader {
   width: 100%;
   height: 100vh;
+  opacity: 0;
+  transition: opacity 1s linear;
   font-family: Doloman;
   display: flex;
+
+  &--visible { opacity: 1 }
 
   h1 {
     display: block;
@@ -30,7 +35,7 @@
       z-index: -1;
       display: block;
       content: '';
-      background-image: url('/public/img/pigeon.png');
+      background-image: url('/img/pigeon.png');
     }
   }
 
